@@ -22,6 +22,10 @@
 
 import qbs
 Project {
+    references: [
+        "third_party/MyCoolLibrary/MyCoolLibrary.qbs"
+    ]
+
     CppApplication {
         property string targetDevice: "unicorn"
 
@@ -31,6 +35,8 @@ Project {
         cpp.warningLevel: "all"
         cpp.treatWarningsAsErrors: true
         cpp.cxxLanguageVersion: "c++11"
+
+        Depends { name: "MyCoolLibrary" }
 
         files: [
             "src/**",
@@ -44,7 +50,7 @@ Project {
         ]
 
         cpp.dynamicLibraries: [
-
+            "glog"
         ]
 
 

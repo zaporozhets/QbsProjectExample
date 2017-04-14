@@ -20,11 +20,27 @@
  * IN THE SOFTWARE.
  */
 
+#include <MyCoolLibrary.h>
+#include <chrono>
+#include <glog/logging.h>
 #include <iostream>
 
-int main(void)
+#define UNUSED(expr)  \
+    do {              \
+        (void)(expr); \
+    } while (0)
+
+
+int main(int argc, char** argv)
 {
-    std::cout << "Yo man!" << std::endl;
+    UNUSED(argc);
+
+    // Initialize Google's logging library.
+    FLAGS_logtostderr = true;
+    google::InitGoogleLogging(argv[0]);
+
+    MyCoolLibrary instance;
+    LOG(INFO) << "Some very important output from my library: " << instance.megaCoolMethod();
 
     return 0;
 }
