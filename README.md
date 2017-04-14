@@ -11,3 +11,8 @@ Code style: **WebKit**
 ```bash
 clang-format -style=webkit -dump-config > .clang-format
 ``` 
+
+## Build project from console for host.
+```bash
+./build.sh --project ./QbsProjectExample.qbs
+```
